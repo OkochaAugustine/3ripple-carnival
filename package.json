@@ -1,0 +1,38 @@
+{
+  "name": "3riple-carnival",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.9.1",
+    "bcryptjs": "^3.0.3",
+    "framer-motion": "^14.0.0",
+    "gsap": "^3.15.0",
+    "jsonwebtoken": "^9.0.3",
+    "lucide-react": "^1.51.0",
+    "mongodb": "^7.7.0",
+    "mongoose": "^9.10.4",
+    "next": "^16.3.8",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-hook-form": "^7.89.0",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.4",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
+  }
+}
