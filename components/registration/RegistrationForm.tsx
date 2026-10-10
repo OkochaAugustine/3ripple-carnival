@@ -32,6 +32,8 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   });
 
   const onSubmit = async (data: RegistrationFormData) => {
+    console.log("REGISTRATION SUBMIT HANDLER FIRED", data);
+
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -54,9 +56,14 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
         registrationCode: result.registrationCode,
         fullName: result.registration.fullName,
       });
+
       reset();
     } catch (error) {
-      setSubmitError(error instanceof Error ? error.message : "Registration failed. Please try again.");
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : "Registration failed. Please try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -65,9 +72,13 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
       <div>
-        <label htmlFor="fullName" className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider">
+        <label
+          htmlFor="fullName"
+          className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider"
+        >
           Full Name
         </label>
+
         <input
           id="fullName"
           type="text"
@@ -76,15 +87,22 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           placeholder="Enter your full name"
           disabled={isSubmitting}
         />
+
         {errors.fullName && (
-          <p className="mt-1.5 text-xs text-red-400">{errors.fullName.message}</p>
+          <p className="mt-1.5 text-xs text-red-400">
+            {errors.fullName.message}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="email" className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider">
+        <label
+          htmlFor="email"
+          className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider"
+        >
           Email Address
         </label>
+
         <input
           id="email"
           type="email"
@@ -93,15 +111,22 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           placeholder="your.email@example.com"
           disabled={isSubmitting}
         />
+
         {errors.email && (
-          <p className="mt-1.5 text-xs text-red-400">{errors.email.message}</p>
+          <p className="mt-1.5 text-xs text-red-400">
+            {errors.email.message}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="phone" className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider">
+        <label
+          htmlFor="phone"
+          className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider"
+        >
           Phone Number
         </label>
+
         <input
           id="phone"
           type="tel"
@@ -110,15 +135,22 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           placeholder="+234 XXX XXX XXXX"
           disabled={isSubmitting}
         />
+
         {errors.phone && (
-          <p className="mt-1.5 text-xs text-red-400">{errors.phone.message}</p>
+          <p className="mt-1.5 text-xs text-red-400">
+            {errors.phone.message}
+          </p>
         )}
       </div>
 
       <div>
-        <label htmlFor="address" className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider">
+        <label
+          htmlFor="address"
+          className="block text-xs font-semibold text-white/70 mb-2 uppercase tracking-wider"
+        >
           Address
         </label>
+
         <textarea
           id="address"
           {...register("address")}
@@ -127,8 +159,11 @@ export default function RegistrationForm({ onSuccess }: RegistrationFormProps) {
           placeholder="Enter your full address"
           disabled={isSubmitting}
         />
+
         {errors.address && (
-          <p className="mt-1.5 text-xs text-red-400">{errors.address.message}</p>
+          <p className="mt-1.5 text-xs text-red-400">
+            {errors.address.message}
+          </p>
         )}
       </div>
 

@@ -7,7 +7,7 @@ import { CarnivalBackground } from "@/components/carnival/CarnivalBackground";
 import { CarnivalEffects } from "@/components/carnival/CarnivalEffects";
 import { PageIntro } from "@/components/carnival/PageIntro";
 import RegistrationForm from "@/components/registration/RegistrationForm";
-import { ArrowUpRight, CalendarDays, MapPin, CheckCircle, Sparkles } from "lucide-react";
+import { ArrowUpRight, CalendarDays, MapPin, CheckCircle, Sparkles, MessageCircle } from "lucide-react";
 
 export default function RegisterPage() {
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
@@ -218,6 +218,23 @@ export default function RegisterPage() {
                       <span className="text-white">Asaba Mall, Delta State</span>
                     </div>
                   </div>
+                </div>
+
+                {/* WhatsApp Group Invitation */}
+                <div className="mb-6">
+                  <a
+                    href="https://chat.whatsapp.com/KbWDqXf3qFSCIVUxQPq6KQ?s=cl&p=a&mlu=0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex w-full items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] px-6 py-4 text-[10px] font-black uppercase tracking-[0.08em] text-white transition shadow-lg"
+                  >
+                    <MessageCircle className="h-5 w-5" />
+                    <span>Join the WhatsApp Group</span>
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  </a>
+                  <p className="mt-2 text-center text-xs text-white/40">
+                    Stay connected with the carnival community
+                  </p>
                 </div>
 
                 {/* Actions */}
