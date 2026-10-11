@@ -8,6 +8,7 @@ import {
   CalendarDays,
   Dumbbell,
   Flame,
+  Lock,
   Menu,
   Star,
   Trophy,
@@ -102,6 +103,13 @@ export function Navbar() {
             >
               Details
             </NavLink>
+
+            <NavLink
+              href="/admin"
+              icon={<Lock className="h-3.5 w-3.5" />}
+            >
+              Admin
+            </NavLink>
           </div>
 
           {/* REGISTER */}
@@ -184,6 +192,13 @@ export function Navbar() {
             href="#details"
             label="Event Details"
             icon={<CalendarDays className="h-4 w-4" />}
+            onClick={() => setMenuOpen(false)}
+          />
+
+          <MobileLink
+            href="/admin"
+            label="Admin Dashboard"
+            icon={<Lock className="h-4 w-4" />}
             onClick={() => setMenuOpen(false)}
           />
 

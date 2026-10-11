@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAdminCredentials, verifyPassword, generateToken } from "@/lib/auth";
+import { connectToDatabase } from "@/lib/mongodb";
+import Admin from "@/models/Admin";
+import { verifyPassword, generateToken } from "@/lib/auth";
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,16 +15,18 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const adminCredentials = getAdminCredentials();
+    await connectToDatabase();
 
-    if (email !== adminCredentials.email) {
+    const admin = await Admin.findOne({ email });
+
+    if (!admin) {
       return NextResponse.json(
         { success: false, error: "Invalid credentials" },
         { status: 401 }
       );
     }
 
-    const isPasswordValid = await verifyPassword(password, adminCredentials.password);
+    const isPasswordValid = await verifyPassword(password, admin.password);
     if (!isPasswordValid) {
       return NextResponse.json(
         { success: false, error: "Invalid credentials" },
@@ -30,7 +34,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const token = generateToken({ email: adminCredentials.email });
+    const token = generateToken({ email: admin.email });
 
     const response = NextResponse.json(
       { success: true, message: "Login successful" },
